@@ -6,18 +6,23 @@ from fabric.api import env
 from fabric.api import local
 from fabric.api import run
 from fabric.api import put
+
 env.hosts = ["35.175.105.32", "52.87.252.47"]
 
 
 def do_pack():
     """Create a .tgz archive for web static content"""
     dt = datetime.utcnow()
-    file = f"versions/web_static_{dt.year}{dt.month}{dt.day}\
-            {dt.hour}{dt.minute}{dt.second}"
+    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(dt.year,
+                                                         dt.month,
+                                                         dt.day,
+                                                         dt.hour,
+                                                         dt.minute,
+                                                         dt.second)
     if os.path.isdir("versions") is False:
-        if local("mkdir -p versions").Failed is True:
+        if local("mkdir -p versions").failed is True:
             return None
-    if local(f"tar -cvzf {file} web_static").Failed is True:
+    if local("tar -cvzf {} web_static".format(file)).failed is True:
         return None
     return file
 
