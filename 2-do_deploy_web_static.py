@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Distribute an archive to the server"""
 import os.path
 from fabric.api import env
 from fabric.api import put
