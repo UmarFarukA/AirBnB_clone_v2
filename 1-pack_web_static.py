@@ -2,7 +2,7 @@
 """Generates a Fabfile to generates a .tgz from the contents of web static"""
 
 import os
-from datatime import datetime
+from datetime import datetime
 from fabric.api import local
 
 
