@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""A scripts that start flask app"""
+"""A scripts that start flask app
+The app listen on 0.0.0.0 on port 5000
+Routes:
+    /cities_by_states: List all states & related cities
+"""
 from flask import Flask
 from flask import render_template
 from models import storage
@@ -8,7 +12,7 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.route('/cities_by_states', strict_slashes=True)
+@app.route("/cities_by_states", strict_slashes=False)
 def cities_by_state():
     """Function that load all cities to state"""
     states = storage.all("State")
