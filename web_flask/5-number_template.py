@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""A Scripts that start a Flask web app
-Routes:
-    /: returns hello hbnb
-    /hbnb: returns hbnh
-"""
+"""A Scripts that start a Flask web app"""
 from flask import Flask
 from flask import render_template
 
@@ -52,4 +48,3 @@ def html_page(n):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
-clear
